@@ -1,7 +1,7 @@
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <script type="text/javascript">
         document.body.requestFullscreen();
         window.addEventListener("load", function() {
@@ -11,7 +11,28 @@
 </head>
 
 <body>
-    Hello 3!
-    <br>
+    <p>Hello 3!</p>
+    <p id="logs"></p>
+    
     <input type="file" accept="audio/*" capture>
+
+
+    <script>
+      var handleSuccess = function(stream) {
+        var context = new AudioContext();
+        var source = context.createMediaStreamSource(stream);
+        var processor = context.createScriptProcessor(1024, 1, 1);
+
+        source.connect(processor);
+        processor.connect(context.destination);
+
+        processor.onaudioprocess = function(e) {
+          // Do something with the data, i.e Convert this to WAV
+          document.getElementById("logs").innerHTML = e.inputBuffer;
+        };
+      };
+
+      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(handleSuccess);
+    </script>
 </body>
