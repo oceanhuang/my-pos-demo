@@ -11,11 +11,10 @@
 </head>
 
 <body>
-    <p>Hello 3!</p>
+    <p>Hello 4!</p>
     <p id="logs"></p>
     
-    <input type="file" accept="audio/*" capture>
-
+    <!-- <input type="file" accept="audio/*" capture> -->
 
     <script>
       var handleSuccess = function(stream) {
@@ -25,6 +24,8 @@
 
         source.connect(processor);
         processor.connect(context.destination);
+
+        document.getElementById("logs").innerHTML = "hey";
 
         processor.onaudioprocess = function(e) {
           // Do something with the data, i.e Convert this to WAV
