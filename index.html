@@ -29,24 +29,42 @@
         } (console.log.bind(console), document.getElementById("error-log")));
 
         var handleSuccess = function(stream) {
-        var context = new AudioContext();
-        var source = context.createMediaStreamSource(stream);
-        var processor = context.createScriptProcessor(1024, 1, 1);
+            var context = new AudioContext();
+            var source = context.createMediaStreamSource(stream);
+            var processor = context.createScriptProcessor(1024, 1, 1);
 
-        source.connect(processor);
-        processor.connect(context.destination);
+            source.connect(processor);
+            processor.connect(context.destination);
 
-        document.getElementById("logs").innerHTML = "hey";
+            document.getElementById("logs").innerHTML += "hey";
 
-        processor.onaudioprocess = function(e) {
-            // Do something with the data, i.e Convert this to WAV
-            document.getElementById("logs").innerHTML = e.inputBuffer;
+            processor.onaudioprocess = function(e) {
+                // Do something with the data, i.e Convert this to WAV
+                document.getElementById("logs").innerHTML = e.inputBuffer;
             };
         };
 
         navigator.mediaDevices.getUserMedia({ audio: true, video: true })
           .then(handleSuccess);
 
+    </script>
 
+    <audio id="player" controls></audio>
+    <script>
+      var player = document.getElementById('player');
+
+      var handleSuccess = function(stream) {
+        document.getElementById("logs").innerHTML += "works?";
+        if (window.URL) {
+          player.srcObject = stream;
+        } else {
+          player.src = stream;
+        }
+      };
+
+      document.getElementById("logs").innerHTML += "invoking logs";
+      
+      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(handleSuccess);
     </script>
 </body>
