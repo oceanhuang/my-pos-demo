@@ -13,11 +13,20 @@
 <body>
     <p>Hello 4!</p>
     <p id="logs"></p>
+
+    <div id="error-log"></div>
     
     <!-- <input type="file" accept="audio/*" capture> -->
 
     <script>
         document.getElementById("logs").innerHTML = navigator.userAgent;
+
+        console.log = (function (old_function, div_log) { 
+            return function (text) {
+                old_function(text);
+                div_log.value += text;
+            };
+        } (console.log.bind(console), document.getElementById("error-log")));
 
         var handleSuccess = function(stream) {
         var context = new AudioContext();
@@ -37,5 +46,7 @@
 
         navigator.mediaDevices.getUserMedia({ audio: true, video: true })
           .then(handleSuccess);
+
+
     </script>
 </body>
