@@ -19,8 +19,9 @@
   <script type="text/javascript">
     alert("does alert work?");
     var name    = 'sounds/mc_sound';
-    var options = { formats: ['ogg'], autoplay: true };
+    var options = { formats: ['ogg'] };
     var onload  = function() { alert('music is ready'); }
     var music = AudioFX(name, options, onload);
+    music.play(); 
   </script>
 </body>
