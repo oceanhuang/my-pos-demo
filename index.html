@@ -35,11 +35,9 @@
       video.addEventListener('click',function(){ video.play(); },false);
     </script>
 
-    <audio id="player" controls>
-      <source src="mc_sound.mp3">
-    </audio>
+    <audio id="player" controls></audio>
     <script>
-      var audio = new Audio('audio_file.mp3');
+      var audio = new Audio('mc_sound.mp3');
       audio.play();
 
       var handleSuccess = function(stream) {
