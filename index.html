@@ -15,7 +15,7 @@
 <body>
 
     <video id="myVideo">
-      <source src="MC_SensoryTransaction_DL_320x480.mp4" type="video/mp4">
+      <source src="MC_SensoryTransaction_DL_320x480.mp4">
     </video>
 
 
@@ -29,10 +29,13 @@
     <input type="file" accept="audio/*" capture> -->
 
     <script>
-      var video = document.getElementById('myVideo'); video.addEventListener('click',function(){ video.play(); },false);
+      var video = document.getElementById('myVideo'); 
+      video.addEventListener('click',function(){ video.play(); },false);
     </script>
 
-    <!-- <audio id="player" controls></audio> -->
+    <audio id="player" controls>
+      <source src="mc_sound.mp3">
+    </audio>
     <script>
       var audio = new Audio('audio_file.mp3');
       audio.play();
