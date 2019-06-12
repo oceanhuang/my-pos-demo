@@ -16,12 +16,9 @@
 <body>
   <!-- <video id="myVideo" src="https://oceanhuang.github.io/my-pos-demo/MC_SensoryTransaction_DL_320x480.mp4" controls="" data-firstframelog="1"></video> -->
   <img id="myVideo" src="MC_SensoryTransaction_DL_320x480.gif">
+
   <script type="text/javascript">
-    alert("does alert work?");
-    var name    = 'sounds/mc_sound';
-    var options = { formats: ['ogg'] };
-    var onload  = function() { alert('music is ready'); }
-    var music = AudioFX(name, options, onload);
-    music.play(); 
+    var music = AudioFX('sounds/mc_sound.wav');
+    music.play();
   </script>
 </body>
