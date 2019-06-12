@@ -14,9 +14,10 @@
 
 <body>
 
-    <video autoplay muted loop id="myVideo">
+    <video id="myVideo">
       <source src="MC_SensoryTransaction_DL_320x480.mp4" type="video/mp4">
     </video>
+
 
 <!--     <p>Hello 4!</p>
     <p id="logs"></p>
@@ -28,34 +29,7 @@
     <input type="file" accept="audio/*" capture> -->
 
     <script>
-        document.getElementById("logs").innerHTML = navigator.userAgent;
-
-        console.log = (function (old_function, div_log) { 
-            return function (text) {
-                old_function(text);
-                div_log.value += text;
-            };
-        } (console.log.bind(console), document.getElementById("error-log")));
-
-        var handleSuccess = function(stream) {
-            var context = new AudioContext();
-            var source = context.createMediaStreamSource(stream);
-            var processor = context.createScriptProcessor(1024, 1, 1);
-
-            source.connect(processor);
-            processor.connect(context.destination);
-
-            document.getElementById("logs").innerHTML += "hey";
-
-            processor.onaudioprocess = function(e) {
-                // Do something with the data, i.e Convert this to WAV
-                document.getElementById("logs").innerHTML = e.inputBuffer;
-            };
-        };
-
-        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-          .then(handleSuccess);
-
+      var video = document.getElementById('myVideo'); video.addEventListener('click',function(){ video.play(); },false);
     </script>
 
     <!-- <audio id="player" controls></audio> -->
