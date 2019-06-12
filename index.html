@@ -1,46 +1,15 @@
 <head>
+  <style type="text/css">
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 100%;
+    }
+  </style>
 </head>
 
 <body>
-
-    <img src="MC_SensoryTransaction_DL_320x480.gif">
-
-<!--     <video id="myVideo">
-      <source src="MC_SensoryTransaction_DL_320x480.mp4">
-    </video> -->
-
-    <p id="logs"></p>
-<!--     <p>Hello 4!</p>
-    
-
-    <div id="error-log"></div>
-
-
-    
-    <input type="file" accept="audio/*" capture> -->
-
-<video src="https://oceanhuang.github.io/my-pos-demo/MC_SensoryTransaction_DL_320x480.mp4" controls="" webkit-playsinline="true" playsinline="true" data-firstframelog="1"></video>
-
-
-    <audio id="player" controls>
-      <source src="mc_sound.mp3" type='audio/mpeg; codecs="mp3"'>
-    </audio>
-    <script>
-      var audio = new Audio('mc_sound.mp3');
-      audio.play();
-
-      var handleSuccess = function(stream) {
-        document.getElementById("logs").innerHTML += "works?";
-        if (window.URL) {
-          player.srcObject = stream;
-        } else {
-          player.src = stream;
-        }
-      };
-
-      document.getElementById("logs").innerHTML += "invoking getUserMedia";
-
-      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-          .then(handleSuccess);
-    </script>
+  <video id="video" src="https://oceanhuang.github.io/my-pos-demo/MC_SensoryTransaction_DL_320x480.mp4" controls="" webkit-playsinline="true" playsinline="true" data-firstframelog="1"></video>
 </body>
