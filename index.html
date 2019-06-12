@@ -1,15 +1,4 @@
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <script type="text/javascript">
-        document.body.requestFullscreen();
-        window.addEventListener("load", function() {
-            window.scrollTo(0,1);
-        });
-    </script>
-
-
 </head>
 
 <body>
@@ -20,9 +9,9 @@
       <source src="MC_SensoryTransaction_DL_320x480.mp4">
     </video> -->
 
-
-<!--     <p>Hello 4!</p>
     <p id="logs"></p>
+<!--     <p>Hello 4!</p>
+    
 
     <div id="error-log"></div>
 
@@ -32,7 +21,9 @@
 
 
 
-    <audio id="player" controls></audio>
+    <audio id="player" controls>
+      <source src="mc_sound.mp3">
+    </audio>
     <script>
       var audio = new Audio('mc_sound.mp3');
       audio.play();
